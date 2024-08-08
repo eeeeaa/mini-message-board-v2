@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS messages (
 async function main() {
   console.log("seeding...");
   const client = new Client({
-    connectionString: `postgresql://${process.env.USER}:${process.env.ROLE_PASSWORD}@${process.env.HOST}:5432/${process.env.DATABASE_NAME}`,
+    connectionString: process.env.CONNECTION_URI,
   });
   await client.connect();
   await client.query(SQL);
