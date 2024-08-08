@@ -1,6 +1,6 @@
 const asyncHandler = require("express-async-handler");
-const { addData } = require("../models/messageModel");
-exports.postMessage = asyncHandler((req, res) => {
-  addData({ text: req.body.message, user: req.body.user });
+const { insertMessage } = require("../models/messageRepository");
+exports.postMessage = asyncHandler(async (req, res) => {
+  await insertMessage({ text: req.body.message, username: req.body.username });
   res.redirect("/");
 });

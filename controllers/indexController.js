@@ -1,5 +1,6 @@
-const { getMessageData } = require("../models/messageModel");
-
-exports.getIndex = (req, res) => {
-  res.render("index", { title: "Message board", messages: getMessageData() });
-};
+const { fetchMessages } = require("../models/messageRepository");
+const asyncHandler = require("express-async-handler");
+exports.getIndex = asyncHandler(async (req, res) => {
+  const data = await fetchMessages();
+  res.render("index", { title: "Message board", messages: data });
+});

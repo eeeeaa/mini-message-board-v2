@@ -10,8 +10,8 @@
     <ul>
       <% messages.map((message) => { %>
       <li>
-        <%- include("message/messagebox", { text: message.text, user:
-        message.user, added: message.added }) %>
+        <%- include("message/messagebox", { text: message.text, username:
+        message.username, added: message.added }) %>
       </li>
       <% }) %>
     </ul>
